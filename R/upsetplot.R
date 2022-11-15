@@ -20,7 +20,7 @@ upsetplot.csAnno <- function(x, order_by = "freq", vennpie=FALSE, vp = list(x=.6
 
     res <- tibble::tibble(anno = lapply(1:nrow(y), function(i) nn[y[i,]]))
     g <- ggplot(res, aes_(x = ~anno)) + geom_bar() +
-        xlab(NULL) + ylab(NULL) + theme_minimal() + theme(plot.title = element_text())
+        xlab(NULL) + ylab(NULL) + theme_minimal() + ggtitle(title))
         ggupset::scale_x_upset(n_intersections = 20, order_by = order_by) 
 
     if (!vennpie) return(g)
